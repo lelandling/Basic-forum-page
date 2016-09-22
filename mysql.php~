@@ -1,0 +1,30 @@
+<?php
+$username = "leland";
+$password = "ling";
+$hostname = "localhost";
+
+$dbhandle = mysql_connect($hostname, $username, $password)
+	or die("Unable to connect to MySQL");
+echo "connected to MySQL<br>";
+$selected = mysql_select_db("forum")
+	or die("Could not select examples");
+	
+$result = mysql_query("select * from useraccount");
+if(! $result){
+	die("could not get data: ". mysql_error());
+}
+	$username = "bob";
+	$password = "222";
+$sql = "insert into useraccount ".
+		"(user, password)".
+		"values".
+		"('$username','$password')";
+$result = mysql_query($sql);
+if(! $result){
+	die("could not get data: ". mysql_error());
+}
+
+/*while ($row = mysql_fetch_array($result)) {
+	echo "ID:".$row['id']."Person:".$row["user"];
+}*/
+?>
